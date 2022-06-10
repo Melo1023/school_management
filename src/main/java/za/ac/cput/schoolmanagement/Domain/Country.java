@@ -11,6 +11,8 @@ public class Country {
     private String id;
     private String name;
 
+    private Country () {}
+
     private Country(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
