@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.Factory;
+package za.ac.cput.schoolmanagement.factory;
 /*
  @Author: Lihle Njobe
  Student number : 218193882
@@ -6,7 +6,7 @@ package za.ac.cput.schoolmanagement.Factory;
  Due date: 18 June 2022
  */
 
-import za.ac.cput.schoolmanagement.Domain.Country;
+import za.ac.cput.schoolmanagement.domain.Country;
 import za.ac.cput.schoolmanagement.Helper.Helper;
 
 public class CountryFactory {
