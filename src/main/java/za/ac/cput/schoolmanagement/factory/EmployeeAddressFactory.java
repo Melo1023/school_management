@@ -1,7 +1,7 @@
-package za.ac.cput.schoolmanagement.Factory;
+package za.ac.cput.schoolmanagement.factory;
 
-import za.ac.cput.schoolmanagement.Domain.EmployeeAddress;
-import za.ac.cput.schoolmanagement.Helper.Helper;
+import za.ac.cput.schoolmanagement.domain.EmployeeAddress;
+import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class EmployeeAddressFactory {
 
