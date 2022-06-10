@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.Helper;
+package za.ac.cput.schoolmanagement.helper;
 
 import java.util.UUID;
 
