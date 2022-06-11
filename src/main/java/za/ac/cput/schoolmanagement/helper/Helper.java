@@ -12,14 +12,4 @@ public class Helper {
         return (s == null || s.equals("") || s.isEmpty() || s.equalsIgnoreCase("null"));
     }
 
-    public static boolean nameIsNullOrEmpty (Name n) {
-
-        return (n == null || n.equals(""));
-    }
-
-    public static boolean addressIsNullOrEmpty (Address a) {
-
-        return (a == null || a.equals(""));
-    }
-
 }

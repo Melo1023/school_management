@@ -4,13 +4,11 @@ import za.ac.cput.schoolmanagement.domain.EmployeeAddress;
 import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class EmployeeAddressFactory {
+/*
 
     public static EmployeeAddress createEmployeeAddress(String staffId, Address address) {
 
         if (Helper.isNullOrEmpty(staffId))
-            return null;
-
-        if (Helper.addressIsNullOrEmpty(address))
             return null;
 
         EmployeeAddress employeeAddress = new EmployeeAddress.Builder().
@@ -19,4 +17,5 @@ public class EmployeeAddressFactory {
                 build();
         return employeeAddress;
     }
+ */
 }
