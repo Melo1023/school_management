@@ -11,7 +11,7 @@ public class Employee {
 
     private String staffId;
     private String email;
-  //  private Name name;
+    private Name name;
 
     public Employee() {
     }
@@ -20,7 +20,7 @@ public class Employee {
 
         this.staffId = builder.staffId;
         this.email = builder.email;
-    //    this.name = builder.name;
+       this.name = builder.name;
     }
 
     public String getStaffId() {
@@ -31,19 +31,16 @@ public class Employee {
         return email;
     }
 
-    /*
-
     public Name getName() {
         return name;
     }
-     */
 
     @Override
     public String toString() {
         return "Employee{" +
                 "staffId='" + staffId + '\'' +
                 ", email='" + email + '\'' +
-     //           ", name=" + name +
+                ", name=" + name +
                 '}';
     }
 
@@ -51,7 +48,7 @@ public class Employee {
 
         private String staffId;
         private String email;
-      //  private Name name;
+        private Name name;
 
         public Builder setStaffId(String staffId) {
             this.staffId = staffId;
@@ -65,14 +62,11 @@ public class Employee {
             return this;
         }
 
-        /*
-
         public Builder setName(Name name) {
             this.name = name;
 
             return this;
         }
-         */
 
         public Employee build() {
             return new Employee(this);
@@ -81,7 +75,7 @@ public class Employee {
         public Builder copy (Employee employee) {
             this.staffId = employee.staffId;
             this.email = employee.email;
-           // this.name = employee.name;
+            this.name = employee.name;
 
             return this;
         }
