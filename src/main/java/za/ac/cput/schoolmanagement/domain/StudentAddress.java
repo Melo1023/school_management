@@ -31,6 +31,7 @@ private StudentAddress(Builder builder){
     public static class Builder{
 
         private PeerAddressChangeNotification.AddressChangeEvent Address;
+
         private String studentId;
 
     public Builder setStudentId(String studentId){
