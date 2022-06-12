@@ -16,8 +16,12 @@ public class EmployeeFactory {
 
     public static Employee createEmployeeFactory(String staffId, String email, Name name) {
 
-        if (Helper.isNullOrEmpty(staffId) || Helper.isNullOrEmpty(email))
+        if (Helper.isNullOrEmpty(staffId))
             return null;
+
+        if (!Helper.isValidEmail(email))
+            return null;
+
         if (name == null)
             return null;
 

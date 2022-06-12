@@ -1,7 +1,6 @@
 package za.ac.cput.schoolmanagement.factory;
 
 /*
-    /*
     Student: Ian Louw
     Student Number: 216250773
     Test class for EmployeeFactory.
