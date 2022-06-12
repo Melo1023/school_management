@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.domain;
+package za.ac.cput.schoolmanagement.Domain;
 
 /*
     Student: Ian Louw
@@ -20,7 +20,7 @@ public class Employee {
 
         this.staffId = builder.staffId;
         this.email = builder.email;
-       this.name = builder.name;
+        this.name = builder.name;
     }
 
     public String getStaffId() {
