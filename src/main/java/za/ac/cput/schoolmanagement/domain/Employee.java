@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.Domain;
+package za.ac.cput.schoolmanagement.domain;
 
 /*
     Student: Ian Louw
@@ -7,6 +7,9 @@ package za.ac.cput.schoolmanagement.Domain;
     Date: 9 June 2022
  */
 
+import javax.persistence.Entity;
+
+@Entity
 public class Employee {
 
     private String staffId;
