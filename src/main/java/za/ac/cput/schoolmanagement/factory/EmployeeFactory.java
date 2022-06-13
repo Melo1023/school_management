@@ -13,7 +13,6 @@ import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class EmployeeFactory {
 
-
     public static Employee createEmployeeFactory(String staffId, String email, Name name) {
 
         if (Helper.isNullOrEmpty(staffId))
