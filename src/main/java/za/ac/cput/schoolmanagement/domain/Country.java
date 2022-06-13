@@ -7,6 +7,9 @@ package za.ac.cput.schoolmanagement.domain;
  Due date: 18 June 2022
  */
 
+import javax.persistence.Entity;
+
+@Entity
     public class Country {
 
         private String id;
