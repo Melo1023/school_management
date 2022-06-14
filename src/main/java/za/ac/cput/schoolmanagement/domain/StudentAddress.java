@@ -9,19 +9,31 @@ package za.ac.cput.schoolmanagement.domain;
 
 import com.sun.nio.sctp.PeerAddressChangeNotification;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class StudentAddress {
 
+    @Id
 private String studentId;
+    @Column (name = "Address")
+    @OneToMany()
 private PeerAddressChangeNotification.AddressChangeEvent Address;
 
+    private StudentAddress(){}
 
-private StudentAddress(Builder builder){
+
+    public StudentAddress(Builder builder){
     this.studentId = builder.studentId;
     this.Address = builder.Address;
 }
 
     public String getStudentId() {
-    return this.studentId;
+
+        return this.studentId;
     }
     public PeerAddressChangeNotification.AddressChangeEvent getAddress(){
     return this.Address;

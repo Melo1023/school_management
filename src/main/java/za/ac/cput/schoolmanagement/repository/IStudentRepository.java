@@ -14,7 +14,7 @@ import za.ac.cput.schoolmanagement.domain.Student;
 
 import java.util.Optional;
 
-public interface IStudentRepository extends JpaRepository<za.ac.cput.schoolmanagement.domain.Student, String> {
+public interface IStudentRepository implements JpaRepository<za.ac.cput.schoolmanagement.domain.Student, String> {
 
  Student delete (String StudentId );
 
