@@ -13,7 +13,7 @@ import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class CityFactory {
 
-    public static City createCity(String id){
+    public static City createCity(String id, String name){
 
         if (Helper.isNullOrEmpty(id) || Helper.isNullOrEmpty(id))
             return null;
