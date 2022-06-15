@@ -7,15 +7,24 @@
  */
 package za.ac.cput.schoolmanagement.domain;
 
+import javax.persistence.*;
 import javax.xml.namespace.QName;
+import java.io.Serializable;
 
-public class Student {
+@Entity
+@IdClass(Student.StudentId.class)
+public class Student implements Serializable {
 
+    @Id
 private String studentId;
+    @Column ( name = "Student Email")
+    @OneToOne()
 private String email;
+    @Column ( name = "Student Name")
+    @OneToOne()
 private QName name;
 
-private Student(Builder builder){
+    public Student(Builder builder){
     this.studentId = builder.studentId;
     this.email=builder.email;
     this.name = builder.name;
@@ -28,6 +37,9 @@ private Student(Builder builder){
     return this.email;
     }
     public QName getName(){return this.name;}
+
+    public interface StudentId {
+    }
 
     public static class Builder{
     private String studentId;
