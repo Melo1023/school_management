@@ -9,15 +9,11 @@ package za.ac.cput.schoolmanagement.domain;
 
 import com.sun.nio.sctp.PeerAddressChangeNotification;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@IdClass(StudentAddress.StudentId.class)
 public class StudentAddress {
-
-    @Id
 private String studentId;
     @Column (name = "Address")
     @OneToMany()
@@ -37,6 +33,9 @@ private PeerAddressChangeNotification.AddressChangeEvent Address;
     }
     public PeerAddressChangeNotification.AddressChangeEvent getAddress(){
     return this.Address;
+    }
+
+    public interface StudentId {
     }
 
 

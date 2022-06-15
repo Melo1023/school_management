@@ -12,6 +12,7 @@ import javax.xml.namespace.QName;
 import java.io.Serializable;
 
 @Entity
+@IdClass(Student.StudentId.class)
 public class Student implements Serializable {
 
     @Id
@@ -36,6 +37,9 @@ private QName name;
     return this.email;
     }
     public QName getName(){return this.name;}
+
+    public interface StudentId {
+    }
 
     public static class Builder{
     private String studentId;
