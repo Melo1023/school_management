@@ -14,5 +14,6 @@ import java.util.List;
 
 public interface EmployeeService extends IService<Employee, String> {
 
-    List<Employee> getAll(String staffId);
+    List<Employee> getAll();
+    void deleteById(String staffId);
 }

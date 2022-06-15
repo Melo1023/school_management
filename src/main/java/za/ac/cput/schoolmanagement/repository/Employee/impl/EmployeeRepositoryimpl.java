@@ -1,5 +1,6 @@
 package za.ac.cput.schoolmanagement.repository.Employee.impl;
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.schoolmanagement.domain.Employee;
 import za.ac.cput.schoolmanagement.repository.Employee.EmployeeRepository;
 
@@ -7,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class EmployeeRepositoryimpl implements EmployeeRepository {
+@Repository
+public class EmployeeRepositoryimpl {
 
     private static EmployeeRepositoryimpl repository = null;
     private List<Employee> employeeDB;
@@ -15,6 +17,7 @@ public class EmployeeRepositoryimpl implements EmployeeRepository {
     private EmployeeRepositoryimpl() {
         employeeDB = new ArrayList<>();
     }
+/*
 
     public static EmployeeRepositoryimpl getRepository() {
         if (repository == null) {
@@ -23,6 +26,7 @@ public class EmployeeRepositoryimpl implements EmployeeRepository {
         return repository;
     }
 
+ */
     public Employee save (Employee employee) {
         Optional<Employee> read = read(employee.getStaffId());
         if (read.isPresent()) {
@@ -42,7 +46,7 @@ public class EmployeeRepositoryimpl implements EmployeeRepository {
         employeeDB.remove(employee);
     }
 
-    public List<Employee> getAll (String staffId) {
-        return repository.getAll(staffId);
+    public List<Employee> getAll () {
+        return repository.getAll();
     }
 }
