@@ -7,6 +7,9 @@ package za.ac.cput.schoolmanagement.domain;
     Date: 9 June 2022
  */
 
+import javax.persistence.Entity;
+
+@Entity
 public class Employee {
 
     private String staffId;
@@ -20,7 +23,7 @@ public class Employee {
 
         this.staffId = builder.staffId;
         this.email = builder.email;
-       this.name = builder.name;
+        this.name = builder.name;
     }
 
     public String getStaffId() {
