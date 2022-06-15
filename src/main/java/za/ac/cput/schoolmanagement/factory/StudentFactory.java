@@ -8,6 +8,7 @@
 package za.ac.cput.schoolmanagement.factory;
 
 import za.ac.cput.schoolmanagement.domain.Student;
+import za.ac.cput.schoolmanagement.helper.Helper;
 
 import javax.xml.namespace.QName;
 
@@ -18,6 +19,12 @@ public class StudentFactory {
             String email,
             QName name
     ){
+        if (
+        Helper.isNullOrEmpty(studentId) || Helper.isValidEmail(email)
+        )
+
+            throw new IllegalArgumentException( "Incorrect details : enter valid details");
+
           return new za.ac.cput.schoolmanagement.domain.Student.Builder()
                   .setStudentId(studentId)
                   .setEmail(email)
@@ -25,3 +32,4 @@ public class StudentFactory {
                   .build();
     }
 }
+

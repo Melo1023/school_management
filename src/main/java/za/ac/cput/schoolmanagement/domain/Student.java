@@ -30,6 +30,10 @@ private QName name;
     this.name = builder.name;
 }
 
+    public static String get() {
+        return null;
+    }
+
     public String getStudentId() {
     return this.studentId;
     }
