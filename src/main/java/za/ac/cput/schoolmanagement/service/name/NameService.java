@@ -5,7 +5,13 @@
    Due Date: 18 June 2022
  */
 package za.ac.cput.schoolmanagement.service.name;
+import za.ac.cput.schoolmanagement.domain.Name;
+import za.ac.cput.schoolmanagement.service.IService;
 
-public interface NameService {
+import java.util.List;
+
+public interface NameService extends IService<Name, String> {
+    List<Name> findAll();
+    void delete(String lastName);
 
 }
