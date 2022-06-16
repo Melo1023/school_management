@@ -10,13 +10,14 @@ package za.ac.cput.schoolmanagement.service.City.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.City;
-import za.ac.cput.schoolmanagement.repository.City.CityRepository;
+import za.ac.cput.schoolmanagement.domain.employee.EmployeeAddress;
+import za.ac.cput.schoolmanagement.repository.CityRepository;
 import za.ac.cput.schoolmanagement.service.City.CityService;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 public class CityServiceImpl implements CityService {
 
     private final CityRepository repository;
@@ -52,6 +53,17 @@ public class CityServiceImpl implements CityService {
         Optional<City> city = read(id);
         if(city.isPresent()) delete(city.get());
 
+    }
+
+    @Override
+    public List<City> getAll(String cityId) {
+        return repository.findAll();
+    }
+
+    @Override
+    public void deleteById(String id) {
+        Optional<City> city = read(id);
+        if (city.isPresent()) delete(city.get());
     }
 
 

@@ -5,7 +5,7 @@ Author: Felecia Zweni 218330189
 Date: 13/06/2022
  */
 
-package za.ac.cput.schoolmanagement.repository.City.impl;
+package za.ac.cput.schoolmanagement.repository;
 
 
 import za.ac.cput.schoolmanagement.domain.City;
