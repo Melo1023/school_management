@@ -1,12 +1,12 @@
-package za.ac.cput.schoolmanagement.repository.Employee;
+package za.ac.cput.schoolmanagement.repository.employee;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.schoolmanagement.domain.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import za.ac.cput.schoolmanagement.domain.employee.Employee;
 import za.ac.cput.schoolmanagement.domain.Name;
-import za.ac.cput.schoolmanagement.factory.EmployeeFactory;
-import za.ac.cput.schoolmanagement.repository.Employee.impl.EmployeeRepositoryimpl;
+import za.ac.cput.schoolmanagement.factory.employee.EmployeeFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,18 +15,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeRepositoryimplTest {
 
-    private Employee employee;
-    private Name user;
-    private EmployeeRepositoryimpl repository;
-
-    @BeforeEach
-    void setUp() {
-        user = new Name.Builder().setFirstName("Mike").setLastName("Long").build();
-        employee = EmployeeFactory.createEmployeeFactory("001","mike@school.co.za", user);
-        repository = EmployeeRepositoryimpl.getRepository();
-        Employee saved = repository.save(employee);
-        assertSame(employee, saved);
-    }
+    private final Name user = new Name.Builder()
+            .setFirstName("Mike")
+            .setLastName("Long")
+            .build();
+    private final Employee employee = new Employee.Builder()
+            .setStaffId("001")
+            .setEmail("mike@gmail.com")
+            .setName(user)
+            .build();
+    @Autowired private EmployeeRepository repository;
 
     @AfterEach
     void tearDown() {
@@ -43,7 +41,7 @@ class EmployeeRepositoryimplTest {
     @Test
     void read() {
         Employee saved = repository.save(employee);
-        Optional<Employee> read = repository.read(saved.getStaffId());
+        Optional<Employee> read = repository.findById(saved.getStaffId());
         assertAll(
                 () -> assertTrue(read.isPresent()),
                 () -> assertSame(saved, read.get())
@@ -53,16 +51,16 @@ class EmployeeRepositoryimplTest {
     @Test
     void delete() {
         Employee saved = repository.save(employee);
-        List<Employee> getAll = repository.getAll(employee.getStaffId());
+        List<Employee> getAll = repository.findAll();
         repository.delete(saved);
-        getAll = repository.getAll(employee.getStaffId());
+        getAll = repository.findAll();
         assertEquals(0, getAll.size());
     }
 
     @Test
     void getAll() {
         repository.save(employee);
-        List<Employee> getAll = repository.getAll(employee.getStaffId());
+        List<Employee> getAll = repository.findAll();
         assertEquals(1, getAll.size());
     }
 }

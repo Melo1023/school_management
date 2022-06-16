@@ -1,6 +1,6 @@
-package za.ac.cput.schoolmanagement.service.EmployeeAddress;
+package za.ac.cput.schoolmanagement.service.employee;
 
-import za.ac.cput.schoolmanagement.domain.EmployeeAddress;
+import za.ac.cput.schoolmanagement.domain.employee.EmployeeAddress;
 import za.ac.cput.schoolmanagement.service.IService;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.domain;
+package za.ac.cput.schoolmanagement.domain.employee;
 
 /*
     Student: Ian Louw
@@ -7,13 +7,21 @@ package za.ac.cput.schoolmanagement.domain;
     Date: 9 June 2022
  */
 
+import za.ac.cput.schoolmanagement.domain.Name;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Entity
-public class Employee {
+public class Employee implements Serializable {
 
+    @Id
     private String staffId;
     private String email;
+    @ManyToOne(targetEntity = Name.class, cascade = CascadeType.ALL)
     private Name name;
 
     public Employee() {

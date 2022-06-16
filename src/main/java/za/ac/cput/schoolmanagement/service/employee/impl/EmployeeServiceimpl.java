@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.service.Employee.impl;
+package za.ac.cput.schoolmanagement.service.employee.impl;
 
 /*
     Student: Ian Louw
@@ -8,28 +8,28 @@ package za.ac.cput.schoolmanagement.service.Employee.impl;
  */
 
 import org.springframework.stereotype.Service;
-import za.ac.cput.schoolmanagement.domain.Employee;
-import za.ac.cput.schoolmanagement.repository.Employee.EmployeeRepository;
-import za.ac.cput.schoolmanagement.repository.Employee.impl.EmployeeRepositoryimpl;
-import za.ac.cput.schoolmanagement.service.Employee.EmployeeService;
+import za.ac.cput.schoolmanagement.domain.employee.Employee;
+import za.ac.cput.schoolmanagement.repository.employee.EmployeeRepository;
+import za.ac.cput.schoolmanagement.service.employee.EmployeeService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class EmployeeServiceimpl implements EmployeeService {
 
-    private final EmployeeRepository repository;
+    private EmployeeRepository repository;
+    //private static EmployeeService SERVICE;
 
     public EmployeeServiceimpl (EmployeeRepository repository) {
         this.repository = repository;
     }
-    private static EmployeeService SERVICE;
-/*
 
     public EmployeeServiceimpl() {
-        repository = EmployeeRepositoryimpl.getRepository();
     }
+/*
 
     public static EmployeeService getService() {
         if (SERVICE == null)
@@ -50,12 +50,20 @@ public class EmployeeServiceimpl implements EmployeeService {
         repository.delete(employee);
     }
 
-    public List<Employee> getAll() {
-        return repository.getAll();
+    @Override
+    public List<Employee> getAll(String staffId) {
+        return repository.findAll();
     }
 
     public void deleteById(String staffId) {
         Optional<Employee> employee = read(staffId);
         if (employee.isPresent()) delete(employee.get());
+    }
+
+    public boolean valEmail(String email) {
+        String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        Pattern emailPat = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = emailPat.matcher(email);
+        return matcher.find();
     }
 }

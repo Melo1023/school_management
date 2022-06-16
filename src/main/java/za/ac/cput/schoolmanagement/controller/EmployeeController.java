@@ -6,15 +6,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.schoolmanagement.domain.Employee;
-import za.ac.cput.schoolmanagement.service.Employee.EmployeeService;
+import za.ac.cput.schoolmanagement.domain.employee.Employee;
+import za.ac.cput.schoolmanagement.service.employee.EmployeeService;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("school/employee")
+@RequestMapping("school/employee/")
 @Slf4j
 public class EmployeeController {
 
@@ -51,8 +51,8 @@ public class EmployeeController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<Employee>> getAll() {
-        List<Employee> employees = this.employeeService.getAll();
+    public ResponseEntity<List<Employee>> getAll(String staffId) {
+        List<Employee> employees = this.employeeService.getAll(staffId);
         return ResponseEntity.ok(employees);
     }
 }
