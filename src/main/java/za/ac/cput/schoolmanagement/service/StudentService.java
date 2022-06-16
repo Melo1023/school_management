@@ -11,8 +11,17 @@ package za.ac.cput.schoolmanagement.service;
 import za.ac.cput.schoolmanagement.domain.Student;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface StudentService extends IService{
+public interface StudentService extends IService <Student, String>{
+
+    Student create(Student student);
+
+    Student update(Student student);
+
+    Optional<Student> read(String studentId);
+
+    void delete(Student student);
 
     List<Student> getAll();
 }

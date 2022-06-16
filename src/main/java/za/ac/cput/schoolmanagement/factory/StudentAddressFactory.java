@@ -8,19 +8,29 @@
 
 package za.ac.cput.schoolmanagement.factory;
 
-import com.sun.nio.sctp.PeerAddressChangeNotification;
+import za.ac.cput.schoolmanagement.domain.Address;
 import za.ac.cput.schoolmanagement.domain.StudentAddress;
+import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class StudentAddressFactory {
 
     public static StudentAddress createStudentAddress(
             String studentId,
-            PeerAddressChangeNotification.AddressChangeEvent Address
+            Address Address
     ){
+        if(
+                Helper.isNullOrEmpty(studentId) || Address == null
+        )
+            throw new IllegalArgumentException("Incorrect Address");
+
         return  new StudentAddress.Builder()
                 .setStudentId(studentId)
                 .setAddress(Address)
                 .build();
 
+    }
+
+    public static StudentAddress createStudentAddress(String studentId, String s) {
+        return null;
     }
 }

@@ -21,5 +21,5 @@ public interface StudentAddressRepository extends JpaRepository<StudentAddress, 
   List<StudentAddress> findByStudentId (String studentId);
 
 
-
+    Object save(StudentAddress studentAddress, za.ac.cput.schoolmanagement.service.StudentAddress studentAddress1);
 }

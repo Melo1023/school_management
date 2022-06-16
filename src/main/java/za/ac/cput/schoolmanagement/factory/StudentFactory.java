@@ -7,20 +7,19 @@
  */
 package za.ac.cput.schoolmanagement.factory;
 
+import za.ac.cput.schoolmanagement.domain.Name;
 import za.ac.cput.schoolmanagement.domain.Student;
 import za.ac.cput.schoolmanagement.helper.Helper;
-
-import javax.xml.namespace.QName;
 
 public class StudentFactory {
 
     public static Student createStudent (
             String studentId,
             String email,
-            QName name
+            Name name
     ){
         if (
-        Helper.isNullOrEmpty(studentId) || Helper.isValidEmail(email)
+        Helper.isNullOrEmpty(studentId) || Helper.isValidEmail(email) || name == null
         )
 
             throw new IllegalArgumentException( "Incorrect details : enter valid details");
@@ -30,6 +29,10 @@ public class StudentFactory {
                   .setEmail(email)
                   .setName(name)
                   .build();
+    }
+
+    public static Student createStudent(String studentId, String email, String s) {
+        return null;
     }
 }
 

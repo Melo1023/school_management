@@ -1,3 +1,11 @@
+/*
+    StudentServiceImpl.java
+    StudentServiceImpl for Student
+    Student:Hlumelo Mpotulo
+    Student Number: 215226348
+    Due Date 09 June 2022
+ */
+
 package za.ac.cput.schoolmanagement.service;
 
 
@@ -10,45 +18,42 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceImpl implements StudentService{
-
-    private static StudentService studentService =null;
-
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    private StudentRepository studentRepository;
-
-    private StudentServiceImpl (){
-
-    }
-   public static StudentService studentService(){
-        if (studentService == null) studentService = new StudentServiceImpl();
-        return studentService;
-   }
-
-   @Override
-    public List<Student> getAll(){
-        return this.studentRepository.findAll();
-   }
-
+    private StudentRepository repository;
 
     @Override
-    public Object save(Object o) {
-        return null;
-    }
+    public Student create(Student student){
 
-
-    @Override
-    public Optional read(String student) {
-        return this.studentRepository.save(String student);
+        return repository.save(student);
     }
 
     @Override
-    public void delete(String StudentId) {
-        Optional<Student> student = read(StudentId);
-        if (StudentId.isEmpty()) delete(Student.get());
-        
+    public Student update(Student student){
 
+        return repository.save(student);
     }
+
+    @Override
+    public Student save(Student student) {
+        return repository.save(student);
+    }
+
+    @Override
+    public Optional<Student> read(String studentId){
+        return Optional.ofNullable(repository.findByStudentId(studentId));
+    }
+
+    @Override
+    public void delete(Student student){
+        System.out.println(student);
+        repository.delete(student);
+    }
+
+    public List<Student>getAll(){
+        return repository.findAll();
+    }
+
+
 }
-
