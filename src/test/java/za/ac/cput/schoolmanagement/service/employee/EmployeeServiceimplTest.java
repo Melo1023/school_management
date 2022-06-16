@@ -19,6 +19,7 @@ class EmployeeServiceimplTest {
             .setFirstName("Mike")
             .setLastName("Long")
             .build();
+
     private final Employee employee = new Employee.Builder()
             .setStaffId("001")
             .setEmail("mike@gmail.com")
@@ -41,6 +42,7 @@ class EmployeeServiceimplTest {
 
     @Test
     void tearDown() {
+
         service.delete(employee);
     }
 

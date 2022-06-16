@@ -38,20 +38,24 @@ public class EmployeeServiceimpl implements EmployeeService {
     }
  */
 
-    public Employee save (Employee employee) {
+    public Employee save (Employee employee)
+    {
         return repository.save(employee);
     }
 
     public Optional<Employee> read (String staffId) {
+
         return  repository.findById(staffId);
     }
 
     public void delete (Employee employee) {
+
         repository.delete(employee);
     }
 
     @Override
     public List<Employee> getAll(String staffId) {
+
         return repository.findAll();
     }
 
