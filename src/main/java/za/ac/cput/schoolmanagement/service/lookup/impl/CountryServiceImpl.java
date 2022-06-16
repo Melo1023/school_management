@@ -22,11 +22,13 @@ public class CountryServiceImpl implements CountryService {
 
     @Autowired
     public CountryServiceImpl(CountryRepository repository) {
+
         this.repository = repository;
     }
 
     @Override
     public Country save(Country country) {
+
         return this.repository.save(country);
     }
 
@@ -42,7 +44,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<Country> findAll() {
+    public List<Country> getAll(String countryId) {
         return this.repository.findAll();
     }
 
