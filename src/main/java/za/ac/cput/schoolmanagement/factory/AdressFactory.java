@@ -8,11 +8,14 @@ package za.ac.cput.schoolmanagement.factory;
  */
 
 import za.ac.cput.schoolmanagement.domain.Address;
+import za.ac.cput.schoolmanagement.domain.City;
 import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class AdressFactory {
 
-    public static Address createAddress(String UnitNumber, String complexName,String streetNumber,String streetName,int postalCode) {
+    public static Address createAddress(String UnitNumber, String complexName, String streetNumber, String streetName, int postalCode, City city) {
+
+
 
 
         Address address = new Address.Builder().
@@ -21,7 +24,7 @@ public class AdressFactory {
                 .setStreetNumber(streetNumber)
                 .setStreetName(streetName)
                 .setPostalCode(postalCode).
-                //.setCity(city).
+                 setCity(city).
                 build();
         return address;
     }

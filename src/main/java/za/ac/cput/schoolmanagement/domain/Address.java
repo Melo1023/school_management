@@ -7,26 +7,37 @@ package za.ac.cput.schoolmanagement.domain;
     Date: 9 June 2022
  */
 
-public class Address {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
+@Entity
+public class Address implements Serializable  {
+
+    @Id
     private String unitNumber;
+
     private String complexName;
     private String streetNumber;
     private String streetName;
     private int postalCode;
-    //private City city;
+    @ManyToOne(targetEntity = City.class, cascade = CascadeType.ALL)
+    private City city;
 
-    public Address(Builder builder) {
+    public Address() {
     }
 
-    public Address(EmployeeAddress.Builder builder) {
+    public Address(Builder builder) {
         this.unitNumber = unitNumber;
         this.complexName = complexName;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.postalCode = postalCode;
-        //this.city = city;
+        this.city = city;
     }
+
 
     public String getUnitNumber() {
         return unitNumber;
@@ -48,9 +59,9 @@ public class Address {
         return postalCode;
     }
 
-   // public City getCity() {
-    //    return city;
-   // }
+    public City getCity() {
+        return city;
+    }
 
     @Override
     public String toString() {
@@ -70,7 +81,7 @@ public class Address {
         private String streetNumber;
         private String streetName;
         private int postalCode;
-       // private City city;
+        private City city;
 
         public Builder setUnitNumber(String unitNumber) {
             this.unitNumber = unitNumber;
@@ -97,10 +108,10 @@ public class Address {
             return this;
         }
 
-        //public Builder setCity(City city) {
-        //    this.city = city;
-         //return this;
-       // }
+        public Builder setCity(City city) {
+         this.city = city;
+         return this;
+       }
         public Address build () {
 
             return new Address(this);
