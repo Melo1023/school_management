@@ -34,17 +34,21 @@ class EmployeeRepositoryimplTest {
     @Test
     void save() {
         Employee saved = repository.save(employee);
+        String emp1 = String.valueOf(employee);
+        String output = String.valueOf(saved);
         assertNotNull(saved);
-        assertSame(employee, saved);
+        assertSame(emp1, output);
     }
 
     @Test
     void read() {
         Employee saved = repository.save(employee);
         Optional<Employee> read = repository.findById(saved.getStaffId());
+        String emp1 = String.valueOf(saved);
+        String output = String.valueOf(read.get());
         assertAll(
                 () -> assertTrue(read.isPresent()),
-                () -> assertSame(saved, read.get())
+                () -> assertSame(emp1, output)
         );
     }
 
@@ -53,7 +57,6 @@ class EmployeeRepositoryimplTest {
         Employee saved = repository.save(employee);
         List<Employee> getAll = repository.findAll();
         repository.delete(saved);
-        getAll = repository.findAll();
         assertEquals(0, getAll.size());
     }
 
