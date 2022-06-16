@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.domain;
+package za.ac.cput.schoolmanagement.domain.lookup;
 
 /*
  @Author: Lihle Njobe
