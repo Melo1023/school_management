@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.factory;
+package za.ac.cput.schoolmanagement.factory.employee;
 
 /*
     Student: Ian Louw
@@ -7,7 +7,7 @@ package za.ac.cput.schoolmanagement.factory;
     Date: 11 June 2022
  */
 
-import za.ac.cput.schoolmanagement.domain.Employee;
+import za.ac.cput.schoolmanagement.domain.employee.Employee;
 import za.ac.cput.schoolmanagement.domain.Name;
 import za.ac.cput.schoolmanagement.helper.Helper;
 

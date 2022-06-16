@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.factory;
+package za.ac.cput.schoolmanagement.factory.employee;
 
 /*
     Student: Ian Louw
@@ -8,7 +8,7 @@ package za.ac.cput.schoolmanagement.factory;
  */
 
 import za.ac.cput.schoolmanagement.domain.Address;
-import za.ac.cput.schoolmanagement.domain.EmployeeAddress;
+import za.ac.cput.schoolmanagement.domain.employee.EmployeeAddress;
 import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class EmployeeAddressFactory {
