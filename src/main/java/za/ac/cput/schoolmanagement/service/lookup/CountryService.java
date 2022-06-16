@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.service.country;
+package za.ac.cput.schoolmanagement.service.lookup;
 /*
  @Author: Lihle Njobe
  Student number : 218193882
@@ -6,7 +6,7 @@ package za.ac.cput.schoolmanagement.service.country;
  Due date: 18 June 2022
  */
 
-import za.ac.cput.schoolmanagement.domain.Country;
+import za.ac.cput.schoolmanagement.domain.lookup.Country;
 import za.ac.cput.schoolmanagement.service.IService;
 
 import java.util.List;

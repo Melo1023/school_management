@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.service.country.impl;
+package za.ac.cput.schoolmanagement.service.lookup.impl;
 /*
  @Author: Lihle Njobe
  Student number : 218193882
@@ -8,9 +8,9 @@ package za.ac.cput.schoolmanagement.service.country.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.schoolmanagement.domain.Country;
-import za.ac.cput.schoolmanagement.repository.country.CountryRepository;
-import za.ac.cput.schoolmanagement.service.country.CountryService;
+import za.ac.cput.schoolmanagement.domain.lookup.Country;
+import za.ac.cput.schoolmanagement.repository.lookup.CountryRepository;
+import za.ac.cput.schoolmanagement.service.lookup.CountryService;
 
 import java.util.List;
 import java.util.Optional;

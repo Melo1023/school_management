@@ -7,6 +7,8 @@ Date: 13/06/2022
 
 package za.ac.cput.schoolmanagement.domain;
 
+import za.ac.cput.schoolmanagement.domain.lookup.Country;
+
 public class City {
 
     private String id;
