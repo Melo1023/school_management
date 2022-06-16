@@ -18,25 +18,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class EmployeeServiceimpl implements EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository repository;
-    //private static EmployeeService SERVICE;
 
-    public EmployeeServiceimpl (EmployeeRepository repository) {
+    public EmployeeServiceImpl(EmployeeRepository repository) {
         this.repository = repository;
     }
 
-    public EmployeeServiceimpl() {
+    public EmployeeServiceImpl() {
     }
-/*
-
-    public static EmployeeService getService() {
-        if (SERVICE == null)
-            SERVICE = new EmployeeServiceimpl();
-        return SERVICE;
-    }
- */
 
     public Employee save (Employee employee)
     {
