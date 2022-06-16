@@ -6,4 +6,6 @@ import za.ac.cput.schoolmanagement.domain.employee.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
+
+    boolean valEmail (String input);
 }

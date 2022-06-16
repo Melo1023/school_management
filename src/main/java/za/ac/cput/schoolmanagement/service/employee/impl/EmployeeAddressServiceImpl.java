@@ -1,5 +1,12 @@
 package za.ac.cput.schoolmanagement.service.employee.impl;
 
+/*
+    Student: Ian Louw
+    Student Number: 216250773
+    Class for the EmployeeAddressServiceImpl.
+    Date: 11 June 2022
+ */
+
 import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.employee.EmployeeAddress;
 import za.ac.cput.schoolmanagement.repository.employee.EmployeeAddressRepository;
@@ -12,19 +19,12 @@ import java.util.Optional;
 public class EmployeeAddressServiceImpl implements EmployeeAddressService {
 
     private EmployeeAddressRepository repository;
-    private static  EmployeeAddressService SERVICE;
 
     public EmployeeAddressServiceImpl (EmployeeAddressRepository repository) {
         this.repository = repository;
     }
 
     public EmployeeAddressServiceImpl() {
-    }
-
-    public static EmployeeAddressService getService() {
-        if (SERVICE == null)
-            SERVICE = new EmployeeAddressServiceImpl();
-        return SERVICE;
     }
 
     public EmployeeAddress save (EmployeeAddress employeeAddress) {
@@ -41,5 +41,10 @@ public class EmployeeAddressServiceImpl implements EmployeeAddressService {
 
     public List<EmployeeAddress> getAll(String staffId) {
         return repository.findAll();
+    }
+
+    public void deleteById(String staffId) {
+        Optional<EmployeeAddress> employeeAddress = read(staffId);
+        if (employeeAddress.isPresent()) delete(employeeAddress.get());
     }
 }
