@@ -8,10 +8,11 @@
 package za.ac.cput.schoolmanagement.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @IdClass(StudentAddress.StudentId.class)
-    public class StudentAddress {
+    public class StudentAddress implements Serializable {
     private String studentId;
     @Column (name = "Address")
     @OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)

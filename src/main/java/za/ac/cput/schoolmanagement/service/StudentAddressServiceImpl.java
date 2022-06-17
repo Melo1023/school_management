@@ -27,32 +27,33 @@ public class StudentAddressServiceImpl implements StudentAddress{
         return (za.ac.cput.schoolmanagement.service.StudentAddress) this.repository.save(StudentAddress ,studentAddress);
     }
 
-    /**
-     * @param s
-     * @return
-     */
     @Override
     public Optional<za.ac.cput.schoolmanagement.service.StudentAddress> read(String s) {
         return Optional.empty();
     }
 
+    @Override
 
-    /**
-     * @param studentId
-     * @return
-     */
+    public za.ac.cput.schoolmanagement.domain.StudentAddress update(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress){
+        return repository.save(studentAddress);
+    }
     @Override
     public Optional<za.ac.cput.schoolmanagement.service.StudentAddress> read(Student.StudentId studentId) {
         return Optional.empty();
     }
 
+    /**
+     * @param studentAddress
+     */
     @Override
-    public void delete(StudentAddress studentAddress) {
-        System.out.println(studentAddress);
-        repository.delete(StudentAddress);
+    public void delete(za.ac.cput.schoolmanagement.service.StudentAddress studentAddress) {
 
+        repository.deleteById(StudentAddress.getStudentId());
     }
-    public List<za.ac.cput.schoolmanagement.domain.StudentAddress> getAll(){
-        return repository.findAll();
+
+     @Override
+     public List<za.ac.cput.schoolmanagement.domain.StudentAddress> getAll(){
+                     return repository.findAll();
     }
 }
+

@@ -19,7 +19,7 @@ import java.util.List;
 @Repository
 public interface StudentAddressRepository extends JpaRepository<StudentAddress, StudentAddress.StudentId> {
   List<StudentAddress> findByStudentId (String studentId);
-
+  void deleteById (String id);
 
     Object save(StudentAddress studentAddress, za.ac.cput.schoolmanagement.service.StudentAddress studentAddress1);
 }
