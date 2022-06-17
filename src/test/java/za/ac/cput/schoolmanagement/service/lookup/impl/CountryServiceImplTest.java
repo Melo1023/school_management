@@ -11,6 +11,8 @@ package za.ac.cput.schoolmanagement.service.lookup.impl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.schoolmanagement.domain.City;
 import za.ac.cput.schoolmanagement.domain.lookup.Country;
 import za.ac.cput.schoolmanagement.service.lookup.CountryService;
 
@@ -18,8 +20,14 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
 
 class CountryServiceImplTest {
+
+    private final City user = new City.Builder()
+            .setId("27")
+            .setName("Stellenbosch")
+            .build();
 
     private final Country country = new Country.Builder()
             .setId("C27")
