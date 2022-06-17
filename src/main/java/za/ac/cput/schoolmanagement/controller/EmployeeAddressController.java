@@ -1,5 +1,12 @@
 package za.ac.cput.schoolmanagement.controller;
 
+/*
+    Student: Ian Louw
+    Student Number: 216250773
+    Class for the EmployeeAddressController.
+    Date: 11 June 2022
+ */
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

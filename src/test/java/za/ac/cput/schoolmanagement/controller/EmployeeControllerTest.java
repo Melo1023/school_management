@@ -1,5 +1,12 @@
 package za.ac.cput.schoolmanagement.controller;
 
+/*
+    Student: Ian Louw
+    Student Number: 216250773
+    Class for the EmployeeController Test.
+    Date: 17 June 2022
+ */
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
