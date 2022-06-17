@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.schoolmanagement.domain.Name;
 import za.ac.cput.schoolmanagement.domain.employee.Employee;
+import za.ac.cput.schoolmanagement.service.employee.EmployeeService;
 
 import java.util.Arrays;
 
@@ -22,6 +23,7 @@ class EmployeeControllerTest {
     @LocalServerPort private int port;
     @Autowired private TestRestTemplate restTemplate;
     @Autowired private EmployeeController controller;
+    @Autowired private EmployeeService service;
 
     private Name user;
     private Employee employee;
@@ -75,6 +77,24 @@ class EmployeeControllerTest {
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertTrue(response.getBody().length == 1)
+        );
+    }
+
+    @Test
+    void findByEmail() {
+        String url = baseUrl + "get-by-email/" + this.employee.getEmail();
+        System.out.println(url);
+        ResponseEntity<Employee> saved = controller.save(employee);
+
+        if (!service.valEmail(employee.getEmail())) {
+            System.out.println("Please enter valid email.");
+        } else {
+            System.out.println("Email is valid...");
+            System.out.println("Email belongs to: " + saved);
+        }
+        assertAll(
+                () -> assertEquals(HttpStatus.OK, saved.getStatusCode()),
+                () -> assertNotNull(saved.getBody())
         );
     }
 }
