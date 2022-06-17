@@ -1,12 +1,17 @@
 package za.ac.cput.schoolmanagement.repository.employee;
 
+/*
+    Student: Ian Louw
+    Student Number: 216250773
+    Class for the EmployeeRepository Test.
+    Date: 17 June 2022
+ */
+
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.schoolmanagement.domain.employee.Employee;
 import za.ac.cput.schoolmanagement.domain.Name;
-import za.ac.cput.schoolmanagement.factory.employee.EmployeeFactory;
 
 import java.util.List;
 import java.util.Optional;
