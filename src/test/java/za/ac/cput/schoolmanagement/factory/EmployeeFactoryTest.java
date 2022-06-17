@@ -11,8 +11,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
-import za.ac.cput.schoolmanagement.domain.Employee;
+import za.ac.cput.schoolmanagement.domain.employee.Employee;
 import za.ac.cput.schoolmanagement.domain.Name;
+import za.ac.cput.schoolmanagement.factory.employee.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

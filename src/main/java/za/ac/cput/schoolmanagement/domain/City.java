@@ -7,8 +7,16 @@ Date: 13/06/2022
 
 package za.ac.cput.schoolmanagement.domain;
 
-public class City {
+import za.ac.cput.schoolmanagement.domain.lookup.Country;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class City implements Serializable {
+
+    @Id
     private String id;
     private String name;
     private Country country;

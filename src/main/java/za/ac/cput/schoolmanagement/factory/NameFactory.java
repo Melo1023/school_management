@@ -6,7 +6,7 @@ import za.ac.cput.schoolmanagement.helper.Helper;
 
 public class NameFactory {
     public static Name createName(String firstName, String middleName, String lastName) {
-        if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName))
+        if (Helper.isNullOrEmpty(lastName))
             return null;
 
         Name name = new Name.Builder()
