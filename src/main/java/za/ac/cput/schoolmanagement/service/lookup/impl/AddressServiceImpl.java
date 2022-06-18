@@ -42,15 +42,9 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public List<Address> getAll(String staffId) {
+    public List<Address> getAll(String unitNumber) {
         return repository.findAll();
     }
-
-    @Override
-    public List<Address> getAll(Address unitNumber) {
-        return null;
-    }
-
 
     @Override
     public void deleteById(String staffId) {
