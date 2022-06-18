@@ -23,7 +23,6 @@ class StudentServiceImplTest {
     @Test
     void h_start(){
         assertNotNull (studentService.create(student));
-        
     }
 
     private void assertNotNull(Student student) {
@@ -31,7 +30,6 @@ class StudentServiceImplTest {
 
     @Test
     void studentService() {
-
 
     }
 
@@ -43,6 +41,7 @@ class StudentServiceImplTest {
     }
 
     @Test
+
     void read (){
         assertEquals("5656", studentService.read("678"));
         Optional<Student> s = studentService.read("678");

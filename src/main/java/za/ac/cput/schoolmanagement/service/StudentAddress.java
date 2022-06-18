@@ -7,21 +7,11 @@
  */
 package za.ac.cput.schoolmanagement.service;
 
-import za.ac.cput.schoolmanagement.domain.Student;
-
-import java.util.List;
-import java.util.Optional;
-
 public interface StudentAddress extends IService <StudentAddress, String> {
 
-    za.ac.cput.schoolmanagement.domain.StudentAddress update(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress);
+    za.ac.cput.schoolmanagement.domain.StudentAddress create(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress);
 
-    Optional<StudentAddress> read(Student.StudentId studentId);
-
-    void delete(StudentAddress studentAddress);
-
-    List<za.ac.cput.schoolmanagement.domain.StudentAddress> getAll();
-
+    void deleteById(String id);
 
 }
 

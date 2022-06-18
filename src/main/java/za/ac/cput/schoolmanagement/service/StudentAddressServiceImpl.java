@@ -9,51 +9,48 @@ package za.ac.cput.schoolmanagement.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.schoolmanagement.domain.Student;
 import za.ac.cput.schoolmanagement.repository.StudentAddressRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentAddressServiceImpl implements StudentAddress{
+public class StudentAddressServiceImpl implements StudentAddress {
 
     @Autowired
-    private StudentAddressRepository repository;
-    private za.ac.cput.schoolmanagement.domain.StudentAddress StudentAddress;
+   private StudentAddressRepository repository;
+    private Object studentAddress;
+
+    @Override
+    public za.ac.cput.schoolmanagement.domain.StudentAddress create(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress){
+        return this.repository.save(studentAddress);
+    }
 
     @Override
     public StudentAddress save(StudentAddress studentAddress) {
-        return (za.ac.cput.schoolmanagement.service.StudentAddress) this.repository.save(StudentAddress ,studentAddress);
+        return null;
     }
 
     @Override
-    public Optional<za.ac.cput.schoolmanagement.service.StudentAddress> read(String s) {
-        return Optional.empty();
+    public Optional<StudentAddress> read(String s) {
+        return null;
+
+    }
+
+
+    @Override
+    public void delete(StudentAddress studentAddress) {
+        this.repository.delete((za.ac.cput.schoolmanagement.domain.StudentAddress) studentAddress);
+
     }
 
     @Override
+    public void deleteById(String id) {
+        repository.deleteById(id);
+        Optional<StudentAddress> studentAddress =read(id);
+        if(studentAddress.isPresent()){
+            delete(studentAddress.get());
+        }
 
-    public za.ac.cput.schoolmanagement.domain.StudentAddress update(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress){
-        return repository.save(studentAddress);
-    }
-    @Override
-    public Optional<za.ac.cput.schoolmanagement.service.StudentAddress> read(Student.StudentId studentId) {
-        return Optional.empty();
-    }
 
-    /**
-     * @param studentAddress
-     */
-    @Override
-    public void delete(za.ac.cput.schoolmanagement.service.StudentAddress studentAddress) {
-
-        repository.deleteById(StudentAddress.getStudentId());
-    }
-
-     @Override
-     public List<za.ac.cput.schoolmanagement.domain.StudentAddress> getAll(){
-                     return repository.findAll();
     }
 }
-
