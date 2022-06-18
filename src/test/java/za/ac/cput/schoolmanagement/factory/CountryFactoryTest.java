@@ -9,7 +9,9 @@ package za.ac.cput.schoolmanagement.factory;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
-import za.ac.cput.schoolmanagement.domain.Country;
+import za.ac.cput.schoolmanagement.domain.lookup.Country;
+import za.ac.cput.schoolmanagement.factory.lookup.CountryFactory;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CountryFactoryTest {

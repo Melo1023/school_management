@@ -1,20 +1,27 @@
 package za.ac.cput.schoolmanagement.controller;
 
+/*
+    Student: Ian Louw
+    Student Number: 216250773
+    Class for the EmployeeController.
+    Date: 17 June 2022
+ */
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.schoolmanagement.domain.Employee;
-import za.ac.cput.schoolmanagement.service.Employee.EmployeeService;
+import za.ac.cput.schoolmanagement.domain.employee.Employee;
+import za.ac.cput.schoolmanagement.service.employee.EmployeeService;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("school/employee")
+@RequestMapping("school/employee/")
 @Slf4j
 public class EmployeeController {
 
@@ -51,8 +58,20 @@ public class EmployeeController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<Employee>> getAll() {
-        List<Employee> employees = this.employeeService.getAll();
+    public ResponseEntity<List<Employee>> getAll(String staffId) {
+        List<Employee> employees = this.employeeService.getAll(staffId);
         return ResponseEntity.ok(employees);
+    }
+
+    private Optional<Employee> getByEmail(String email) {
+        return this.employeeService.read(email);
+    }
+
+    @GetMapping("get-by-email/{email}")
+    public ResponseEntity<Employee> findByEmail(@PathVariable String email) {
+        log.info("Read request: {}", email);
+        Employee employeeEmail = getByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return ResponseEntity.ok(employeeEmail);
     }
 }

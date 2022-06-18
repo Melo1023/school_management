@@ -9,7 +9,8 @@ package za.ac.cput.schoolmanagement.factory;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
-import za.ac.cput.schoolmanagement.domain.City;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
+import za.ac.cput.schoolmanagement.factory.lookup.CityFactory;
 
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
