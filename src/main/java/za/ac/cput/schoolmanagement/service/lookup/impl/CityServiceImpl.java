@@ -5,14 +5,12 @@ Author: Felecia Zweni 218330189
 Date: 13/06/2022
  */
 
-package za.ac.cput.schoolmanagement.service.City.impl;
+package za.ac.cput.schoolmanagement.service.lookup.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import za.ac.cput.schoolmanagement.domain.City;
-import za.ac.cput.schoolmanagement.domain.employee.EmployeeAddress;
-import za.ac.cput.schoolmanagement.repository.CityRepository;
-import za.ac.cput.schoolmanagement.service.City.CityService;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
+import za.ac.cput.schoolmanagement.repository.lookup.CityRepository;
+import za.ac.cput.schoolmanagement.service.lookup.CityService;
 
 import java.util.List;
 import java.util.Optional;
