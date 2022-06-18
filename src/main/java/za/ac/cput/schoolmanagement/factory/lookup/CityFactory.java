@@ -5,9 +5,9 @@ Author: Felecia Zweni 218330189
 Date: 13/06/2022
  */
 
-package za.ac.cput.schoolmanagement.factory;
+package za.ac.cput.schoolmanagement.factory.lookup;
 
-import za.ac.cput.schoolmanagement.domain.City;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
 
 import za.ac.cput.schoolmanagement.helper.Helper;
 

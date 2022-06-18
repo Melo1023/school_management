@@ -5,11 +5,11 @@ Author: Felecia Zweni 218330189
 Date: 13/06/2022
  */
 
-package za.ac.cput.schoolmanagement.repository;
+package za.ac.cput.schoolmanagement.repository.lookup;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.ac.cput.schoolmanagement.domain.City;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
 
 
 import java.util.List;

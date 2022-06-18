@@ -5,10 +5,10 @@ Author: Felecia Zweni 218330189
 Date: 13/06/2022
  */
 
-package za.ac.cput.schoolmanagement.service.City;
+package za.ac.cput.schoolmanagement.service.lookup;
 
 import org.springframework.stereotype.Service;
-import za.ac.cput.schoolmanagement.domain.City;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
 import za.ac.cput.schoolmanagement.service.IService;
 
 import java.util.List;

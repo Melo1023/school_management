@@ -13,8 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.schoolmanagement.domain.City;
-import za.ac.cput.schoolmanagement.service.City.CityService;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
+import za.ac.cput.schoolmanagement.service.lookup.CityService;
 
 
 import javax.validation.Valid;
@@ -44,7 +44,7 @@ public class CityController {
         return this.cityService.read(id);
     }
 
-    @GetMapping("read/{staffId}")
+    @GetMapping("read/{id}")
     public ResponseEntity<City> read (@PathVariable String id) {
         log.info("Read request: {}", id);
         City city = getById(id)
