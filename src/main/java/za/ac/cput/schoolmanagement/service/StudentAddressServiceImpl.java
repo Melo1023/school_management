@@ -44,10 +44,9 @@ public class StudentAddressServiceImpl implements StudentAddress {
     public void deleteById(String id) {
         repository.deleteById(id);
         Optional<StudentAddress> studentAddress =read(id);
-        if(studentAddress.isPresent()){
+        if(studentAddress.isPresent()) {
             delete(studentAddress.get());
         }
-
 
     }
 }
