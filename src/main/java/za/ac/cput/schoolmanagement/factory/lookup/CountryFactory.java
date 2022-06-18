@@ -11,14 +11,19 @@ import za.ac.cput.schoolmanagement.helper.Helper;
 public class CountryFactory {
 
     public static Country createCountry(String id, String name) {
-        if (Helper.isNullOrEmpty(id) || Helper.isNullOrEmpty(name))
+
+        if(Helper.isNullOrEmpty(id))
             return null;
 
-     Country country = new Country.Builder()
-             .setId(id)
+        if(name == null)
+            return null;
+
+     Country country = new Country.Builder().setId(id)
              .setName(name)
              .build();
      return country;
     }
-}
+
+    }
+
 
