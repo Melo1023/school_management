@@ -7,6 +7,8 @@ package za.ac.cput.schoolmanagement.domain;
     Date: 9 June 2022
  */
 
+import za.ac.cput.schoolmanagement.domain.lookup.City;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
