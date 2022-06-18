@@ -34,6 +34,7 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Optional<Country> read(String id) {
+
         return repository.findById(id);
     }
 
@@ -44,12 +45,12 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<Country> getAll(String countryId) {
+    public List<Country> getAll(String id) {
         return this.repository.findAll();
     }
 
     @Override
-    public void delete(String id) {
+    public void deleteById(String id) {
         Optional<Country> country = read(id);
         if(country.isPresent()) delete(country.get());
 
