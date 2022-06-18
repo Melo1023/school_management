@@ -47,6 +47,5 @@ public class StudentAddressServiceImpl implements StudentAddress {
         if(studentAddress.isPresent()) {
             delete(studentAddress.get());
         }
-
     }
 }
