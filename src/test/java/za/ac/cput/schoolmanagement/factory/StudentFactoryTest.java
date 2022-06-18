@@ -8,41 +8,37 @@
 
 package za.ac.cput.schoolmanagement.factory;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import za.ac.cput.schoolmanagement.domain.Student;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class StudentFactoryTest {
 
-public class StudentFactoryTest {
+     private static Student student = StudentFactory.createStudent("364474", "mpotuloh04@gmail.com","Cebo");
 
-    private static final String BASE_URL = "http://localhost:8080/schoolmanagement/student";
+     @Test
+     void createStudentSuccess()throws IllegalArgumentException{
+         Student student1 = StudentFactory.createStudent("6345", "hlumelo@web.co.za","Lizo");
+         assertNotNull(student1);
+         assertEquals("student added", student1.getStudentId());
+         System.out.println(student1.getName());
+     }
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+     @Test
+      void createStudentFail(){
+         assertThrows(IllegalArgumentException.class, ()->{
+             StudentFactory.createStudent("465","melo@webmail","Figo");
+         });
+         System.out.println("An error occured");
+     }
 
-
-
-    @Test
-    public void createStudent() {
-        ResponseEntity result = restTemplate.withBasicAuth("admin" , "admin")
-                .postForEntity(BASE_URL + "/create/student" ,null , String.class);
-        System.out.println(result.getStatusCode());
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-    }
-
-    @Test
-    public void getAll() {
-        ResponseEntity<String> result = restTemplate.withBasicAuth("admin", "admin")
-                .getForEntity(BASE_URL+"/getall", String.class);
-        System.out.println(result.getBody());
-        assertEquals(HttpStatus.OK, result.getStatusCode());
+    private void assertEquals(String student_added, String studentId) {
 
     }
+
+    private void assertNotNull(Student student1) {
+    }
+
 }

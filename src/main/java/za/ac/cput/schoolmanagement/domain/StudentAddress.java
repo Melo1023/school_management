@@ -7,17 +7,16 @@
  */
 package za.ac.cput.schoolmanagement.domain;
 
-import com.sun.nio.sctp.PeerAddressChangeNotification;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @IdClass(StudentAddress.StudentId.class)
-public class StudentAddress {
-private String studentId;
+    public class StudentAddress implements Serializable {
+    private String studentId;
     @Column (name = "Address")
-    @OneToMany()
-private PeerAddressChangeNotification.AddressChangeEvent Address;
+    @OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+    private Address Address;
 
     private StudentAddress(){}
 
@@ -31,9 +30,11 @@ private PeerAddressChangeNotification.AddressChangeEvent Address;
 
         return this.studentId;
     }
-    public PeerAddressChangeNotification.AddressChangeEvent getAddress(){
+    public Address getAddress(){
     return this.Address;
     }
+
+
 
     public interface StudentId {
     }
@@ -42,7 +43,7 @@ private PeerAddressChangeNotification.AddressChangeEvent Address;
     public static class Builder{
 
 
-        private PeerAddressChangeNotification.AddressChangeEvent Address;
+        private Address Address;
 
         private String studentId;
 
@@ -50,7 +51,7 @@ private PeerAddressChangeNotification.AddressChangeEvent Address;
         this.studentId= studentId;
                 return this;
     }
-    public Builder setAddress(PeerAddressChangeNotification.AddressChangeEvent Address){
+    public Builder setAddress(Address Address){
         this.Address= Address;
         return this;
     }

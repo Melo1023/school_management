@@ -10,35 +10,32 @@
 package za.ac.cput.schoolmanagement.factory;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import za.ac.cput.schoolmanagement.domain.Address;
+import za.ac.cput.schoolmanagement.domain.StudentAddress;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-//@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public  class StudentAddressFactoryTest {
+class StudentAddressFactoryTest {
 
-    public static final String BASE_URL = "http://localhost:8080/SchoolManagement/StudentAddress";
+      private static StudentAddress studentAddress = StudentAddressFactory.createStudentAddress("215226348","18849 Dyamala Road");
 
-    @Autowired
+      @Test
+      void createStudentAddressSuccess() throws IllegalArgumentException{
+          StudentAddress studentAddress1 =StudentAddressFactory.createStudentAddress("2322", "507 Fig Street ");
+          assertNotNull(studentAddress1);
+          assertEquals("18849",studentAddress1.getAddress());
+      }
 
-    private TestRestTemplate restTemplate;
+    private void assertEquals(String s, Address address) {
+    }
 
     @Test
-    public void getAll() {
-        ResponseEntity<String> result = restTemplate.withBasicAuth("admin","admin")
-                .getForEntity(BASE_URL + "/getall", String.class);
-        System.out.println(result.getStatusCode());
+    void createStudentAddressFail(){
+          assertThrows(IllegalArgumentException.class, ()->{
+              StudentAddressFactory.createStudentAddress("454635", "5466");
+          });
+        System.out.println("An error occured");
     }
-    @Test
-    public void createStudentAddress() {
-        ResponseEntity result = restTemplate.withBasicAuth("admin", "admin")
-                .postForEntity(BASE_URL + "/create/StudentAddress", null, String.class);
-        System.out.println(result.getStatusCode());
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-    }
+
 }

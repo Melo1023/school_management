@@ -15,13 +15,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.schoolmanagement.domain.Student;
 
-import java.util.List;
-
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Student.StudentId> {
 
 
-   List<Student> findByStudentId (String StudentId);
+   Student findByStudentId (String StudentId);
 
 
 }

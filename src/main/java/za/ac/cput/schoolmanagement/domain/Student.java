@@ -8,7 +8,6 @@
 package za.ac.cput.schoolmanagement.domain;
 
 import javax.persistence.*;
-import javax.xml.namespace.QName;
 import java.io.Serializable;
 
 @Entity
@@ -16,19 +15,23 @@ import java.io.Serializable;
 public class Student implements Serializable {
 
     @Id
-private String studentId;
+    private String studentId;
     @Column ( name = "Student Email")
     @OneToOne()
-private String email;
+    private String email;
     @Column ( name = "Student Name")
-    @OneToOne()
-private QName name;
+    @ManyToOne(targetEntity = Name.class, cascade = CascadeType.ALL)
+    private Name name;
 
     public Student(Builder builder){
     this.studentId = builder.studentId;
     this.email=builder.email;
-    this.name = builder.name;
+    this.name= builder.name;
 }
+
+    public static String get() {
+        return null;
+    }
 
     public String getStudentId() {
     return this.studentId;
@@ -36,7 +39,8 @@ private QName name;
     public String getEmail(){
     return this.email;
     }
-    public QName getName(){return this.name;}
+
+    public Name getName(){return this.name;}
 
     public interface StudentId {
     }
@@ -44,7 +48,7 @@ private QName name;
     public static class Builder{
     private String studentId;
     private String email;
-    private QName name;
+    private Name name;
 
     public Builder setStudentId(String studentId){
         this.studentId= studentId;
@@ -54,7 +58,7 @@ private QName name;
         this.email= email;
         return this;
     }
-    public Builder setName(QName name)
+    public Builder setName(Name name)
     {
         this.name=name;
         return this;
