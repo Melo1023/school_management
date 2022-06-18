@@ -5,9 +5,7 @@ Author: Felecia Zweni 218330189
 Date: 13/06/2022
  */
 
-package za.ac.cput.schoolmanagement.domain;
-
-import za.ac.cput.schoolmanagement.domain.lookup.Country;
+package za.ac.cput.schoolmanagement.domain.lookup;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
