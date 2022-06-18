@@ -17,13 +17,13 @@ public class StudentAddressFactory {
     public static StudentAddress createStudentAddress(
             String studentId,
             Address Address
-    ){
-        if(
+    ) {
+        if (
                 Helper.isNullOrEmpty(studentId) || Address == null
         )
             throw new IllegalArgumentException("Incorrect Address");
 
-        return  new StudentAddress.Builder()
+        return new StudentAddress.Builder()
                 .setStudentId(studentId)
                 .setAddress(Address)
                 .build();
@@ -32,5 +32,6 @@ public class StudentAddressFactory {
 
     public static StudentAddress createStudentAddress(String studentId, String s) {
         return null;
+
     }
 }

@@ -7,11 +7,19 @@
  */
 package za.ac.cput.schoolmanagement.service;
 
-public interface StudentAddress extends IService <StudentAddress, String> {
+import za.ac.cput.schoolmanagement.domain.StudentAddress;
+
+import java.util.List;
+
+public interface StudentAddressService extends IService <StudentAddressService, String> {
 
     za.ac.cput.schoolmanagement.domain.StudentAddress create(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress);
 
     void deleteById(String id);
+
+    List<StudentAddress> findAll();
+
+//    void delete(String a);
 
 }
 

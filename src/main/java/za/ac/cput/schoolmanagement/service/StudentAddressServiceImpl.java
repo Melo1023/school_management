@@ -9,43 +9,57 @@ package za.ac.cput.schoolmanagement.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.schoolmanagement.domain.StudentAddress;
 import za.ac.cput.schoolmanagement.repository.StudentAddressRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentAddressServiceImpl implements StudentAddress {
+public class StudentAddressServiceImpl implements StudentAddressService {
+    private final StudentAddressRepository repository;
 
     @Autowired
-   private StudentAddressRepository repository;
-    private Object studentAddress;
-
-    @Override
-    public za.ac.cput.schoolmanagement.domain.StudentAddress create(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress){
-        return this.repository.save(studentAddress);
+    public StudentAddressServiceImpl(StudentAddressRepository repository){
+        this.repository =repository;
     }
 
     @Override
-    public StudentAddress save(StudentAddress studentAddress) {
+    public StudentAddressService save(StudentAddressService studentAddress) {
+//        return this.repository.save(studentAddress);
         return null;
     }
 
     @Override
-    public Optional<StudentAddress> read(String s) {
-        return null;
+    public Optional<StudentAddressService> read(String id) {
+        return this.repository.findAllById(id);
+//        return Optional.empty();
     }
 
     @Override
-    public void delete(StudentAddress studentAddress) {
-        this.repository.delete((za.ac.cput.schoolmanagement.domain.StudentAddress) studentAddress);
+    public void delete(StudentAddressService studentAddress) {
+//        this.repository.delete(za.ac.cput.schoolmanagement.domain.StudentAddress);
+
+    }
+
+    @Override
+    public za.ac.cput.schoolmanagement.domain.StudentAddress create(za.ac.cput.schoolmanagement.domain.StudentAddress studentAddress) {
+        return null;
     }
 
     @Override
     public void deleteById(String id) {
         repository.deleteById(id);
-        Optional<StudentAddress> studentAddress =read(id);
-        if(studentAddress.isPresent()) {
-            delete(studentAddress.get());
-        }
+        Optional<StudentAddressService> studentAddress =read(id);
+        if
+        (studentAddress.isPresent())
+        {
+        delete(studentAddress.get());
+
+    }}
+
+    @Override
+    public List<StudentAddress> findAll() {
+        return this.repository.findAll();
     }
 }
