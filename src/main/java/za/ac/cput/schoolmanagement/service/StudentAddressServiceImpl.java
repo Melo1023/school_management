@@ -38,7 +38,6 @@ public class StudentAddressServiceImpl implements StudentAddress {
     @Override
     public void delete(StudentAddress studentAddress) {
         this.repository.delete((za.ac.cput.schoolmanagement.domain.StudentAddress) studentAddress);
-
     }
 
     @Override
