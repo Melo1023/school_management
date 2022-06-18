@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.service.employee.impl;
+package za.ac.cput.schoolmanagement.service.employee;
 
 /*
     Student: Ian Louw
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.schoolmanagement.domain.employee.Employee;
-import za.ac.cput.schoolmanagement.domain.Name;
+import za.ac.cput.schoolmanagement.domain.lookup.Name;
 import za.ac.cput.schoolmanagement.service.employee.EmployeeService;
 
 import java.util.List;
