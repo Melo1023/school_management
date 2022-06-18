@@ -11,6 +11,7 @@ import za.ac.cput.schoolmanagement.domain.lookup.City;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,8 +19,9 @@ import java.util.Objects;
 @Entity
 public class Address implements Serializable  {
 
-
+@Id
     private String unitNumber;
+
     private String complexName;
     private String streetNumber;
     private String streetName;
