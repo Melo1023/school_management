@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("school management/address/")
+@RequestMapping("school_management/address/")
 @Slf4j
 public class AddressController {
 
