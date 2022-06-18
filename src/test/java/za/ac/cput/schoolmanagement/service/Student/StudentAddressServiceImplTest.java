@@ -37,7 +37,7 @@ class StudentAddressServiceImplTest {
     void h_update() {
 
         studentAddress = new StudentAddress.Builder().copy(studentAddress).setStudentId("43546").build();
-        studentAddress = studentAddressService.update(studentAddress);
+
         assertEquals("43546", studentAddress.getStudentId());
         System.out.println(studentAddress.getStudentId());
 
