@@ -1,5 +1,12 @@
 package za.ac.cput.schoolmanagement.controller;
 
+/*
+    Student: Ian Louw
+    Student Number: 216250773
+    Class for the EmployeeController.
+    Date: 17 June 2022
+ */
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,5 +61,17 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> getAll(String staffId) {
         List<Employee> employees = this.employeeService.getAll(staffId);
         return ResponseEntity.ok(employees);
+    }
+
+    private Optional<Employee> getByEmail(String email) {
+        return this.employeeService.read(email);
+    }
+
+    @GetMapping("get-by-email/{email}")
+    public ResponseEntity<Employee> findByEmail(@PathVariable String email) {
+        log.info("Read request: {}", email);
+        Employee employeeEmail = getByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return ResponseEntity.ok(employeeEmail);
     }
 }
