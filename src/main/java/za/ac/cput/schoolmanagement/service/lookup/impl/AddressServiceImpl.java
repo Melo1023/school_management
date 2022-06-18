@@ -7,52 +7,54 @@ package za.ac.cput.schoolmanagement.service.lookup.impl;
  */
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.Address;
 import za.ac.cput.schoolmanagement.repository.lookup.AddressRepository;
 import za.ac.cput.schoolmanagement.service.lookup.AddressService;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    private AddressRepository repository;
-    private static AddressService service;
+    private final AddressRepository repository;
 
-
-
-    public AddressServiceImpl () {
-    }
-
-    public AddressServiceImpl(AddressRepository addressRepository) {
-        this.repository=addressRepository;
-    }
-
-    public Address save (Address Address) {
-        return repository.save(Address);
+    @Autowired
+    public AddressServiceImpl(AddressRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public Optional<Address> read(String s) {
-        return Optional.empty();
+    public Address save(Address address) {
+        return this.repository.save(address);
     }
 
-    //public Optional<Address> read (Address.AddressId unitNumber) {
-      //  return repository.findById(unitNumber);
-   // }
-
-    public void delete (Address Address) {
-        repository.delete(Address);
+    @Override
+    public Optional<Address> read(String id) {
+        return repository.findById(id);
     }
 
+    @Override
+    public void delete(Address address) {
+        this.repository.delete(address);
+
+    }
+
+    @Override
     public List<Address> getAll(String staffId) {
         return repository.findAll();
     }
 
-    public void deleteById(String unitNumber) {
-        Optional<Address> Address = read(unitNumber);
-        if (Address.isPresent()) delete(Address.get());
+    @Override
+    public List<Address> getAll(Address unitNumber) {
+        return null;
+    }
+
+
+    @Override
+    public void deleteById(String staffId) {
+        Optional<Address> address = read(staffId);
+        if (address.isPresent()) delete(address.get());
     }
 }

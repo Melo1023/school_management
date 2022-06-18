@@ -11,6 +11,6 @@ import za.ac.cput.schoolmanagement.service.IService;
 import java.util.List;
 
 public interface AddressService extends IService<Address, String> {
-    List<Address> getAll(String unitNumber);
+    List<Address> getAll(Address unitNumber);
     void deleteById(String unitNumber);
 }

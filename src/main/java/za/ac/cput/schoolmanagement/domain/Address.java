@@ -9,7 +9,6 @@ package za.ac.cput.schoolmanagement.domain;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
@@ -30,7 +29,7 @@ public class Address implements Serializable  {
     }
 
     public Address(Builder builder) {
-        this.unitNumber = unitNumber;
+        this.unitNumber= unitNumber;
         this.complexName = complexName;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
@@ -145,33 +144,5 @@ public class Address implements Serializable  {
 
 
     }
-    public static class AddressId{
-        private String unitNumber,streetNumber;
 
-        public AddressId(String unitNumber, String streetNumber) {
-            this.unitNumber = unitNumber;
-            this.streetNumber = streetNumber;
-        }
-
-        public String getUnitNumber() {
-            return unitNumber;
-        }
-
-        public String getStreetNumber() {
-            return streetNumber;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            AddressId addressId = (AddressId) o;
-            return unitNumber.equals(addressId.unitNumber) && streetNumber.equals(addressId.streetNumber);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(unitNumber, streetNumber);
-        }
-    }
 }
