@@ -10,8 +10,8 @@ package za.ac.cput.schoolmanagement.service.lookup.impl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.schoolmanagement.domain.City;
-import za.ac.cput.schoolmanagement.service.City.CityService;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
+import za.ac.cput.schoolmanagement.service.lookup.CityService;
 
 
 import java.util.List;

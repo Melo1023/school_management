@@ -11,7 +11,8 @@ package za.ac.cput.schoolmanagement.repository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.schoolmanagement.domain.City;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
+import za.ac.cput.schoolmanagement.repository.lookup.CityRepository;
 
 import java.util.List;
 import java.util.Optional;

@@ -8,7 +8,7 @@ Date: 13/06/2022
 package za.ac.cput.schoolmanagement.repository;
 
 
-import za.ac.cput.schoolmanagement.domain.City;
+import za.ac.cput.schoolmanagement.domain.lookup.City;
 
 import java.util.ArrayList;
 import java.util.List;
